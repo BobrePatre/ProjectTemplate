@@ -1,7 +1,7 @@
 package di_provider
 
 import (
-	"github.com/BobrePatre/ProjectTemplate/v1/internal/config"
+	"github.com/BobrePatre/ProjectTemplate/internal/config"
 	"log"
 )
 

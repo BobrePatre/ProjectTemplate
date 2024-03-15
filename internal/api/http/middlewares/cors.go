@@ -2,8 +2,8 @@ package middlewares
 
 import (
 	"fmt"
-	"github.com/BobrePatre/ProjectTemplate/v1/internal/constants"
-	"github.com/BobrePatre/ProjectTemplate/v1/internal/utils/helpers"
+	"github.com/BobrePatre/ProjectTemplate/internal/constants"
+	"github.com/BobrePatre/ProjectTemplate/internal/utils/helpers"
 	"github.com/gin-gonic/gin"
 	"log/slog"
 	"net/http"

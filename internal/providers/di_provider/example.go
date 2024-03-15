@@ -1,12 +1,12 @@
 package di_provider
 
 import (
-	"github.com/BobrePatre/ProjectTemplate/v1/internal/api/grpc/v1/example"
-	"github.com/BobrePatre/ProjectTemplate/v1/internal/api/http/handlers/example/v1"
-	"github.com/BobrePatre/ProjectTemplate/v1/internal/repository"
-	exampleRepository "github.com/BobrePatre/ProjectTemplate/v1/internal/repository/example"
-	"github.com/BobrePatre/ProjectTemplate/v1/internal/service"
-	exampleService "github.com/BobrePatre/ProjectTemplate/v1/internal/service/example"
+	"github.com/BobrePatre/ProjectTemplate/internal/api/grpc/example"
+	example2 "github.com/BobrePatre/ProjectTemplate/internal/api/http/handlers/example"
+	"github.com/BobrePatre/ProjectTemplate/internal/repository"
+	exampleRepository "github.com/BobrePatre/ProjectTemplate/internal/repository/example"
+	"github.com/BobrePatre/ProjectTemplate/internal/service"
+	exampleService "github.com/BobrePatre/ProjectTemplate/internal/service/example"
 )
 
 var _ = (*DiProvider)(nil)
@@ -25,9 +25,9 @@ func (p *DiProvider) ExampleService() service.ExampleService {
 	return p.exampleService
 }
 
-func (p *DiProvider) ExampleHandler() *v1.Handler {
+func (p *DiProvider) ExampleHandler() *example2.Handler {
 	if p.exampleHandler == nil {
-		p.exampleHandler = v1.NewHandler(p.ExampleService())
+		p.exampleHandler = example2.NewHandler(p.ExampleService())
 	}
 	return p.exampleHandler
 }

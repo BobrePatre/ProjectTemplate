@@ -2,7 +2,7 @@ package repository
 
 import (
 	"context"
-	"github.com/BobrePatre/ProjectTemplate/v1/internal/model"
+	"github.com/BobrePatre/ProjectTemplate/internal/model"
 )
 
 type ExampleRepository interface {

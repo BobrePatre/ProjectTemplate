@@ -1,4 +1,4 @@
-package v1
+package request
 
 type ExampleRequest struct {
 	Title       string `json:"title" validate:"required"`

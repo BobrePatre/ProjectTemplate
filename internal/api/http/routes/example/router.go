@@ -1,18 +1,18 @@
-package v1
+package example
 
 import (
-	"github.com/BobrePatre/ProjectTemplate/v1/internal/api/http/handlers/example/v1"
-	authProvider "github.com/BobrePatre/ProjectTemplate/v1/internal/providers/web_auth_provider"
+	"github.com/BobrePatre/ProjectTemplate/internal/api/http/handlers/example"
+	authProvider "github.com/BobrePatre/ProjectTemplate/internal/providers/web_auth_provider"
 	"github.com/gin-gonic/gin"
 )
 
 type Router struct {
 	router         *gin.RouterGroup
-	handler        *v1.Handler
+	handler        *example.Handler
 	authMiddleware authProvider.AuthHttpMiddleware
 }
 
-func NewRouter(router *gin.RouterGroup, authMiddleware authProvider.AuthHttpMiddleware, handler *v1.Handler) *Router {
+func NewRouter(router *gin.RouterGroup, authMiddleware authProvider.AuthHttpMiddleware, handler *example.Handler) *Router {
 
 	return &Router{
 		router:         router,

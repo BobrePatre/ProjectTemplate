@@ -1,8 +1,8 @@
 package converters
 
 import (
-	"github.com/BobrePatre/ProjectTemplate/v1/internal/model"
-	desc "github.com/BobrePatre/ProjectTemplate/v1/pkg/api/golang/example/v1"
+	"github.com/BobrePatre/ProjectTemplate/internal/model"
+	desc "github.com/BobrePatre/ProjectTemplate/pkg/api/golang/example"
 )
 
 func ExampleFromProtoRequest(request *desc.ExampleRequest) model.Example {

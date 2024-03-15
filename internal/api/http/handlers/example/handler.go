@@ -1,10 +1,11 @@
-package v1
+package example
 
 import (
-	"github.com/BobrePatre/ProjectTemplate/v1/internal/api/http/converters"
-	"github.com/BobrePatre/ProjectTemplate/v1/internal/api/http/datatransfers/request/v1"
-	"github.com/BobrePatre/ProjectTemplate/v1/internal/service"
+	"github.com/BobrePatre/ProjectTemplate/internal/api/http/converters"
+	"github.com/BobrePatre/ProjectTemplate/internal/api/http/datatransfers/request"
+	"github.com/BobrePatre/ProjectTemplate/internal/service"
 	"github.com/gin-gonic/gin"
+	"github.com/go-playground/validator/v10"
 )
 
 type Handler struct {
@@ -21,7 +22,7 @@ func NewHandler(
 
 func (h *Handler) Example(ctx *gin.Context) {
 
-	var req v1.ExampleRequest
+	var req request.ExampleRequest
 	if err := ctx.ShouldBindJSON(&req); err != nil {
 		ctx.JSON(400, gin.H{
 			"error": err.Error(),

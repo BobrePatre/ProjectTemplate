@@ -2,9 +2,9 @@ package example
 
 import (
 	"context"
-	"github.com/BobrePatre/ProjectTemplate/v1/internal/model"
-	"github.com/BobrePatre/ProjectTemplate/v1/internal/repository"
-	def "github.com/BobrePatre/ProjectTemplate/v1/internal/service"
+	"github.com/BobrePatre/ProjectTemplate/internal/model"
+	"github.com/BobrePatre/ProjectTemplate/internal/repository"
+	def "github.com/BobrePatre/ProjectTemplate/internal/service"
 )
 
 var _ def.ExampleService = (*Service)(nil)

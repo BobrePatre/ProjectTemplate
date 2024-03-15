@@ -2,9 +2,9 @@ package app
 
 import (
 	"context"
-	"github.com/BobrePatre/ProjectTemplate/v1/internal/api/http/middlewares"
-	"github.com/BobrePatre/ProjectTemplate/v1/internal/api/http/routes/example/v1"
-	"github.com/BobrePatre/ProjectTemplate/v1/internal/constants"
+	"github.com/BobrePatre/ProjectTemplate/internal/api/http/middlewares"
+	"github.com/BobrePatre/ProjectTemplate/internal/api/http/routes/example"
+	"github.com/BobrePatre/ProjectTemplate/internal/constants"
 	"github.com/gin-gonic/gin"
 	"log/slog"
 	"net/http"
@@ -29,7 +29,7 @@ func (a *App) initHTTPServer(_ context.Context) error {
 	authMiddlewareConstructor := a.diProvider.HttpAuthMiddlewareConstructor()
 
 	v1RouterGroup := router.Group("/api/v1", middlewares.CORSMiddleware())
-	v1.NewRouter(v1RouterGroup, authMiddlewareConstructor(a.authProvider), a.diProvider.ExampleHandler()).RegisterRoutes()
+	example.NewRouter(v1RouterGroup, authMiddlewareConstructor(a.authProvider), a.diProvider.ExampleHandler()).RegisterRoutes()
 
 	router.Any("/grpc/v1/*any", gin.WrapH(a.gatewayServer))
 

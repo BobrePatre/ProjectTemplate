@@ -2,7 +2,7 @@ package keycloak_redis
 
 import (
 	"context"
-	"github.com/BobrePatre/ProjectTemplate/v1/internal/providers/web_auth_provider"
+	"github.com/BobrePatre/ProjectTemplate/internal/providers/web_auth_provider"
 	"github.com/lestrrat-go/jwx/jwk"
 )
 
