@@ -2,8 +2,8 @@ package example
 
 import (
 	"context"
-	"github.com/BobrePatre/ProjectTemplate/internal/model"
-	def "github.com/BobrePatre/ProjectTemplate/internal/repository"
+	"github.com/BobrePatre/ProjectTemplate/v1/internal/model"
+	def "github.com/BobrePatre/ProjectTemplate/v1/internal/repository"
 	"sync"
 )
 

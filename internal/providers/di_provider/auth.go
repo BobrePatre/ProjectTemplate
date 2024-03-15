@@ -1,9 +1,9 @@
 package di_provider
 
 import (
-	grpcMiddlewares "github.com/BobrePatre/ProjectTemplate/internal/api/grpc/interceptors"
-	httpMiddlewares "github.com/BobrePatre/ProjectTemplate/internal/api/http/middlewares"
-	"github.com/BobrePatre/ProjectTemplate/internal/providers/web_auth_provider"
+	grpcMiddlewares "github.com/BobrePatre/ProjectTemplate/v1/internal/api/grpc/interceptors"
+	httpMiddlewares "github.com/BobrePatre/ProjectTemplate/v1/internal/api/http/middlewares"
+	"github.com/BobrePatre/ProjectTemplate/v1/internal/providers/web_auth_provider"
 )
 
 func (p *DiProvider) HttpAuthMiddlewareConstructor() web_auth_provider.AuthHttpMiddlewareConstructor {

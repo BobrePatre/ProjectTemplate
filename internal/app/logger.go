@@ -2,7 +2,7 @@ package app
 
 import (
 	"context"
-	"github.com/BobrePatre/ProjectTemplate/internal/constants"
+	"github.com/BobrePatre/ProjectTemplate/v1/internal/constants"
 	"log/slog"
 	"os"
 )

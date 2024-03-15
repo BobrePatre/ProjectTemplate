@@ -2,7 +2,7 @@ package web_auth_provider
 
 import (
 	"context"
-	"github.com/BobrePatre/ProjectTemplate/internal/providers/web_auth_provider/model"
+	"github.com/BobrePatre/ProjectTemplate/v1/internal/providers/web_auth_provider/model"
 	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt"
 	"github.com/lestrrat-go/jwx/jwk"

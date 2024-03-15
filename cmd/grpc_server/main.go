@@ -4,7 +4,7 @@ import (
 	"context"
 	"log"
 
-	"github.com/BobrePatre/ProjectTemplate/internal/app"
+	"github.com/BobrePatre/ProjectTemplate/v1/internal/app"
 )
 
 func main() {

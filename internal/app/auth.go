@@ -3,8 +3,8 @@ package app
 import (
 	"context"
 	"fmt"
-	"github.com/BobrePatre/ProjectTemplate/internal/providers/web_auth_provider"
-	keycloakAuthProvider "github.com/BobrePatre/ProjectTemplate/internal/providers/web_auth_provider/keycloak_redis"
+	"github.com/BobrePatre/ProjectTemplate/v1/internal/providers/web_auth_provider"
+	keycloakAuthProvider "github.com/BobrePatre/ProjectTemplate/v1/internal/providers/web_auth_provider/keycloak_redis"
 	"time"
 )
 

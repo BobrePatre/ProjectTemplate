@@ -4,7 +4,7 @@ package api.example.v2;
 import "google/api/annotations.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
-option go_package = "github.com/BobrePatre/ProjectTemplate/pkg/go/api/example/v2";
+option go_package = "github.com/BobrePatre/ProjectTemplate/v1/pkg/go/api/example/v2";
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
   info: {
     title: "Example API",

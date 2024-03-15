@@ -2,9 +2,9 @@ package app
 
 import (
 	"context"
-	"github.com/BobrePatre/ProjectTemplate/internal/api/http/middlewares"
-	"github.com/BobrePatre/ProjectTemplate/internal/api/http/routes/example/v1"
-	"github.com/BobrePatre/ProjectTemplate/internal/constants"
+	"github.com/BobrePatre/ProjectTemplate/v1/internal/api/http/middlewares"
+	"github.com/BobrePatre/ProjectTemplate/v1/internal/api/http/routes/example/v1"
+	"github.com/BobrePatre/ProjectTemplate/v1/internal/constants"
 	"github.com/gin-gonic/gin"
 	"log/slog"
 	"net/http"

@@ -3,8 +3,8 @@ package interceptors
 import (
 	"context"
 	"errors"
-	authProvider "github.com/BobrePatre/ProjectTemplate/internal/providers/web_auth_provider"
-	authErrors "github.com/BobrePatre/ProjectTemplate/internal/providers/web_auth_provider/model"
+	authProvider "github.com/BobrePatre/ProjectTemplate/v1/internal/providers/web_auth_provider"
+	authErrors "github.com/BobrePatre/ProjectTemplate/v1/internal/providers/web_auth_provider/model"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/metadata"

@@ -2,8 +2,8 @@ package middlewares
 
 import (
 	"errors"
-	"github.com/BobrePatre/ProjectTemplate/internal/providers/web_auth_provider"
-	authErrors "github.com/BobrePatre/ProjectTemplate/internal/providers/web_auth_provider/model"
+	"github.com/BobrePatre/ProjectTemplate/v1/internal/providers/web_auth_provider"
+	authErrors "github.com/BobrePatre/ProjectTemplate/v1/internal/providers/web_auth_provider/model"
 	"github.com/gin-gonic/gin"
 	"log/slog"
 	"net/http"

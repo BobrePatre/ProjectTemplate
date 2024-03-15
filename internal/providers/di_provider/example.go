@@ -1,12 +1,12 @@
 package di_provider
 
 import (
-	"github.com/BobrePatre/ProjectTemplate/internal/api/grpc/v1/example"
-	"github.com/BobrePatre/ProjectTemplate/internal/api/http/handlers/example/v1"
-	"github.com/BobrePatre/ProjectTemplate/internal/repository"
-	exampleRepository "github.com/BobrePatre/ProjectTemplate/internal/repository/example"
-	"github.com/BobrePatre/ProjectTemplate/internal/service"
-	exampleService "github.com/BobrePatre/ProjectTemplate/internal/service/example"
+	"github.com/BobrePatre/ProjectTemplate/v1/internal/api/grpc/v1/example"
+	"github.com/BobrePatre/ProjectTemplate/v1/internal/api/http/handlers/example/v1"
+	"github.com/BobrePatre/ProjectTemplate/v1/internal/repository"
+	exampleRepository "github.com/BobrePatre/ProjectTemplate/v1/internal/repository/example"
+	"github.com/BobrePatre/ProjectTemplate/v1/internal/service"
+	exampleService "github.com/BobrePatre/ProjectTemplate/v1/internal/service/example"
 )
 
 var _ = (*DiProvider)(nil)

@@ -1,9 +1,9 @@
 package converters
 
 import (
-	requests "github.com/BobrePatre/ProjectTemplate/internal/api/http/datatransfers/request/v1"
-	"github.com/BobrePatre/ProjectTemplate/internal/api/http/datatransfers/response"
-	"github.com/BobrePatre/ProjectTemplate/internal/model"
+	requests "github.com/BobrePatre/ProjectTemplate/v1/internal/api/http/datatransfers/request/v1"
+	"github.com/BobrePatre/ProjectTemplate/v1/internal/api/http/datatransfers/response"
+	"github.com/BobrePatre/ProjectTemplate/v1/internal/model"
 )
 
 func ToExampleFromRequest(req requests.ExampleRequest) model.Example {

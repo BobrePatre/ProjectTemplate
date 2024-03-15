@@ -2,7 +2,7 @@ package app
 
 import (
 	"context"
-	"github.com/BobrePatre/ProjectTemplate/internal/providers/di_provider"
+	"github.com/BobrePatre/ProjectTemplate/v1/internal/providers/di_provider"
 )
 
 var _ = (*App)(nil)

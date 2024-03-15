@@ -2,11 +2,11 @@ package example
 
 import (
 	"context"
-	"github.com/BobrePatre/ProjectTemplate/internal/api/grpc/converters"
-	authProvider "github.com/BobrePatre/ProjectTemplate/internal/providers/web_auth_provider"
-	authModels "github.com/BobrePatre/ProjectTemplate/internal/providers/web_auth_provider/model"
-	"github.com/BobrePatre/ProjectTemplate/internal/service"
-	desc "github.com/BobrePatre/ProjectTemplate/pkg/go/api/example/v1"
+	"github.com/BobrePatre/ProjectTemplate/v1/internal/api/grpc/converters"
+	authProvider "github.com/BobrePatre/ProjectTemplate/v1/internal/providers/web_auth_provider"
+	authModels "github.com/BobrePatre/ProjectTemplate/v1/internal/providers/web_auth_provider/model"
+	"github.com/BobrePatre/ProjectTemplate/v1/internal/service"
+	desc "github.com/BobrePatre/ProjectTemplate/v1/pkg/go/api/example/v1"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 	"log/slog"

@@ -4,8 +4,8 @@ import (
 	"context"
 	"crypto/rsa"
 	"fmt"
-	"github.com/BobrePatre/ProjectTemplate/internal/providers/web_auth_provider"
-	authErrors "github.com/BobrePatre/ProjectTemplate/internal/providers/web_auth_provider/model"
+	"github.com/BobrePatre/ProjectTemplate/v1/internal/providers/web_auth_provider"
+	authErrors "github.com/BobrePatre/ProjectTemplate/v1/internal/providers/web_auth_provider/model"
 	"github.com/golang-jwt/jwt"
 	"log/slog"
 )

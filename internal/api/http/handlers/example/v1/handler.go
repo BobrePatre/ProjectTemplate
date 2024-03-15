@@ -1,9 +1,9 @@
 package v1
 
 import (
-	"github.com/BobrePatre/ProjectTemplate/internal/api/http/converters"
-	"github.com/BobrePatre/ProjectTemplate/internal/api/http/datatransfers/request/v1"
-	"github.com/BobrePatre/ProjectTemplate/internal/service"
+	"github.com/BobrePatre/ProjectTemplate/v1/internal/api/http/converters"
+	"github.com/BobrePatre/ProjectTemplate/v1/internal/api/http/datatransfers/request/v1"
+	"github.com/BobrePatre/ProjectTemplate/v1/internal/service"
 	"github.com/gin-gonic/gin"
 )
 

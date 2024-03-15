@@ -1,12 +1,12 @@
 package di_provider
 
 import (
-	"github.com/BobrePatre/ProjectTemplate/internal/api/grpc/v1/example"
-	"github.com/BobrePatre/ProjectTemplate/internal/api/http/handlers/example/v1"
-	"github.com/BobrePatre/ProjectTemplate/internal/config"
-	"github.com/BobrePatre/ProjectTemplate/internal/providers/web_auth_provider"
-	"github.com/BobrePatre/ProjectTemplate/internal/repository"
-	"github.com/BobrePatre/ProjectTemplate/internal/service"
+	"github.com/BobrePatre/ProjectTemplate/v1/internal/api/grpc/v1/example"
+	"github.com/BobrePatre/ProjectTemplate/v1/internal/api/http/handlers/example/v1"
+	"github.com/BobrePatre/ProjectTemplate/v1/internal/config"
+	"github.com/BobrePatre/ProjectTemplate/v1/internal/providers/web_auth_provider"
+	"github.com/BobrePatre/ProjectTemplate/v1/internal/repository"
+	"github.com/BobrePatre/ProjectTemplate/v1/internal/service"
 )
 
 type DiProvider struct {

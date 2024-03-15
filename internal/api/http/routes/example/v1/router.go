@@ -1,8 +1,8 @@
 package v1
 
 import (
-	"github.com/BobrePatre/ProjectTemplate/internal/api/http/handlers/example/v1"
-	authProvider "github.com/BobrePatre/ProjectTemplate/internal/providers/web_auth_provider"
+	"github.com/BobrePatre/ProjectTemplate/v1/internal/api/http/handlers/example/v1"
+	authProvider "github.com/BobrePatre/ProjectTemplate/v1/internal/providers/web_auth_provider"
 	"github.com/gin-gonic/gin"
 )
 

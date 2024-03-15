@@ -2,8 +2,8 @@ package keycloak_redis
 
 import (
 	"context"
-	"github.com/BobrePatre/ProjectTemplate/internal/providers/web_auth_provider"
-	"github.com/BobrePatre/ProjectTemplate/internal/providers/web_auth_provider/model"
+	"github.com/BobrePatre/ProjectTemplate/v1/internal/providers/web_auth_provider"
+	"github.com/BobrePatre/ProjectTemplate/v1/internal/providers/web_auth_provider/model"
 	"github.com/golang-jwt/jwt"
 	"github.com/mitchellh/mapstructure"
 	"log/slog"
