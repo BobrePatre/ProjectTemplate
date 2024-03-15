@@ -47,7 +47,8 @@ setup-npm-tools:
 	@echo "Setup openapi generator"
 	@npm install -g @openapitools/openapi-generator-cli
 
-
+# Setup All Tools
+setup-tools: validate-project setup-golang-tools setup-npm-tools vendor
 
 # Vendoring Dependencies
 vendor:
@@ -114,4 +115,3 @@ validate-project:
 
 
 
-setup-tools: validate-project setup-golang-tools setup-npm-tools vendor
