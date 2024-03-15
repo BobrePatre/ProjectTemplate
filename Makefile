@@ -57,12 +57,12 @@ vendor:
   		echo "Creating vendor directory"; \
 		mkdir -p $(VENDOR_DIR); \
 	fi
-	@if [ ! -d "$(GOOGLE_APIS_DIR)" ]; then \
+	@if [ ! -d "$(GOOGLE_APIS_DIR)" ] || [ -z "$$(ls -A $(GOOGLE_APIS_DIR) 2>/dev/null)"  ]; then \
   		echo "Vendoring googleapis"; \
 		git clone https://github.com/googleapis/googleapis.git $(GOOGLE_APIS_DIR); \
 		echo "Done vendoring googleapis"; \
 	fi
-	@if [ ! -d "$(GRPC_GATEWAY_DIR)" ]; then \
+	@if [ ! -d "$(GRPC_GATEWAY_DIR)" ] || [ -z "$$(ls -A $(GRPC_GATEWAY_DIR) 2>/dev/null)" ]; then \
   		echo "Vendoring grpc-gateway"; \
 		git clone https://github.com/grpc-ecosystem/grpc-gateway.git $(GRPC_GATEWAY_DIR); \
 	fi
