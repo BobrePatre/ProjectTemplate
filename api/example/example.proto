@@ -1,10 +1,12 @@
 syntax = 'proto3';
+
 package api.example;
 
 import "google/api/annotations.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
 option go_package = "github.com/BobrePatre/ProjectTemplate/pkg/api/golang/example";
+
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
   info: {
     title: "Example API",
@@ -41,7 +43,7 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
 service ExampleService {
   rpc Example(ExampleRequest) returns (ExampleResponse) {
     option (google.api.http) = {
-      post: "/grpc/v1/example/idi-na-xui"
+      post: "/grpc/api/example"
       body: "*"
     };
     option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {

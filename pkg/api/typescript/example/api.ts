@@ -130,7 +130,7 @@ export const ExampleServiceApiAxiosParamCreator = function (configuration?: Conf
         exampleServiceExample: async (body: ExampleExampleRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'body' is not null or undefined
             assertParamExists('exampleServiceExample', 'body', body)
-            const localVarPath = `/grpc/v1/example/idi-na-xui`;
+            const localVarPath = `/grpc/api/example`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;

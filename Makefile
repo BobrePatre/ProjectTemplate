@@ -112,16 +112,3 @@ validate-project:
 	fi
 	@echo "Project Is Valid!"
 
-
-
-suka:
-	@/Users/georgiygusev/Library/Caches/JetBrains/GoLand2023.3/grpc/protoc/protoc \
-    --proto_path=/Users/georgiygusev/GolandProjects/ProjectTemplate/pkg/vendor/grpc-gateway \
-    --proto_path=/Users/georgiygusev/GolandProjects/ProjectTemplate/pkg/vendor/googleapis \
-    --proto_path=/Users/georgiygusev/GolandProjects/ProjectTemplate/pkg/vendor/googleapis/ \
-    --proto_path=/Users/georgiygusev/GolandProjects/ProjectTemplate/pkg/vendor/grpc-gateway/ \
-    --proto_path=/Users/georgiygusev/GolandProjects/ProjectTemplate/api/example \
-    --include_imports \
-    --descriptor_set_out=/Users/georgiygusev/Library/Caches/JetBrains/GoLand2023.3/grpc/47d10eb4b2ad36599058a5f111e39d7f/binaryDescriptor.bin \
-	/Users/georgiygusev/GolandProjects/ProjectTemplate/api/example/example.proto \
-

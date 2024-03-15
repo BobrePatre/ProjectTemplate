@@ -71,7 +71,7 @@ func RegisterExampleServiceHandlerServer(ctx context.Context, mux *runtime.Serve
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/api.example.ExampleService/Example", runtime.WithHTTPPathPattern("/grpc/v1/example/idi-na-xui"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/api.example.ExampleService/Example", runtime.WithHTTPPathPattern("/grpc/api/example"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -135,7 +135,7 @@ func RegisterExampleServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/api.example.ExampleService/Example", runtime.WithHTTPPathPattern("/grpc/v1/example/idi-na-xui"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/api.example.ExampleService/Example", runtime.WithHTTPPathPattern("/grpc/api/example"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -155,7 +155,7 @@ func RegisterExampleServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 }
 
 var (
-	pattern_ExampleService_Example_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"grpc", "v1", "example", "idi-na-xui"}, ""))
+	pattern_ExampleService_Example_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"grpc", "api", "example"}, ""))
 )
 
 var (

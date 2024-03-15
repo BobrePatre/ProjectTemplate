@@ -16,7 +16,7 @@
     "application/json"
   ],
   "paths": {
-    "/grpc/v1/example/idi-na-xui": {
+    "/grpc/api/example": {
       "post": {
         "summary": "Create an example",
         "operationId": "ExampleService_Example",
