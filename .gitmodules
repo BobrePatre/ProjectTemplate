@@ -1,0 +1,6 @@
+[submodule "pkg/vendor/googleapis"]
+	path = pkg/vendor/googleapis
+	url = https://github.com/googleapis/googleapis.git
+[submodule "pkg/vendor/grpc-gateway"]
+	path = pkg/vendor/grpc-gateway
+	url = https://github.com/grpc-ecosystem/grpc-gateway.git

@@ -59,12 +59,12 @@ vendor:
 	fi
 	@if [ ! -d "$(GOOGLE_APIS_DIR)" ] || [ -z "$$(ls -A $(GOOGLE_APIS_DIR) 2>/dev/null)"  ]; then \
   		echo "Vendoring googleapis"; \
-		git clone https://github.com/googleapis/googleapis.git $(GOOGLE_APIS_DIR); \
+		git submodule add https://github.com/googleapis/googleapis.git $(GOOGLE_APIS_DIR); \
 		echo "Done vendoring googleapis"; \
 	fi
 	@if [ ! -d "$(GRPC_GATEWAY_DIR)" ] || [ -z "$$(ls -A $(GRPC_GATEWAY_DIR) 2>/dev/null)" ]; then \
   		echo "Vendoring grpc-gateway"; \
-		git clone https://github.com/grpc-ecosystem/grpc-gateway.git $(GRPC_GATEWAY_DIR); \
+		git submodule add https://github.com/grpc-ecosystem/grpc-gateway.git $(GRPC_GATEWAY_DIR); \
 	fi
 	@echo "Dependencies vendored"
 
