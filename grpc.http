@@ -1,0 +1,10 @@
+
+
+### Request with body
+GRPC localhost:50051/api.example.v1.ExampleService/Example
+
+{
+  "body": "aliqua",
+  "description": "qui incididunt do",
+  "title": "pariatur in elit"
+}

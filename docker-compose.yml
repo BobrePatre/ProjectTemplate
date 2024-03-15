@@ -1,0 +1,68 @@
+version: "3.8"
+name: "example"
+
+
+services:
+
+
+  database-auth:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - userdata:/var/lib/postgresql/data
+    restart: always
+    networks:
+      - auth
+
+
+  auth:
+    image: quay.io/keycloak/keycloak:latest
+    ports:
+      - "8180:8080"
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+      POSTGRES_HOST: database-auth
+      POSTGRES_PORT: 5432
+    command:
+      - start-dev
+      - --import-realm
+      - "-Dkeycloak.migration.action=import"
+      - "-Dkeycloak.migration.provider=dir"
+      - "-Dkeycloak.migration.dir=/opt/keycloak/data/import"
+      - "-Dkeycloak.migration.strategy=OVERWRITE_EXISTING"
+    volumes:
+      - ./realms:/opt/keycloak/data/import
+    restart: always
+    networks:
+      - auth
+
+
+
+  cache:
+    image: redis:latest
+    restart: always
+    ports:
+      - '6379:6379'
+    command: redis-server --save 20 1 --loglevel warning --requirepass password
+    volumes:
+      - cache:/data
+    networks:
+      - backend
+
+
+volumes:
+  cache:
+  userdata:
+
+networks:
+  backend:
+  auth:
