@@ -39,7 +39,6 @@ setup-golang-tools:
 	@go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 	@go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway@latest
 	@go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@latest
-	@go mod tidy
 
 
 # Installing Tools For Code Generation; Using NPM
