@@ -22,7 +22,7 @@ func AuthInerceptor(provider authProvider.WebAuthProvider) grpc.UnaryServerInter
 	) (interface{}, error) {
 		slog.Debug("auth interceptor", slog.String("method", info.FullMethod))
 		switch info.FullMethod {
-		case "/api.example.v1.ExampleService/Example":
+		case "/api.example.ExampleService/Example":
 			token, err := parseTokenFromHeader(ctx)
 			if err != nil {
 				return nil, status.Error(codes.Unauthenticated, err.Error())

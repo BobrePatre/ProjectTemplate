@@ -119,7 +119,6 @@ export interface RpcStatus {
  * @export
  */
 export const ExampleServiceApiAxiosParamCreator = function (configuration?: Configuration) {
-    // @ts-ignore
     return {
         /**
          * 
