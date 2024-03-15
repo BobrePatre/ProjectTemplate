@@ -19,10 +19,10 @@ import 'example.pb.dart' as $0;
 
 export 'example.pb.dart';
 
-@$pb.GrpcServiceName('api.example.v1.ExampleService')
+@$pb.GrpcServiceName('api.example.ExampleService')
 class ExampleServiceClient extends $grpc.Client {
   static final _$example = $grpc.ClientMethod<$0.ExampleRequest, $0.ExampleResponse>(
-      '/api.example.v1.ExampleService/Example',
+      '/api.example.ExampleService/Example',
       ($0.ExampleRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.ExampleResponse.fromBuffer(value));
 
@@ -37,9 +37,9 @@ class ExampleServiceClient extends $grpc.Client {
   }
 }
 
-@$pb.GrpcServiceName('api.example.v1.ExampleService')
+@$pb.GrpcServiceName('api.example.ExampleService')
 abstract class ExampleServiceBase extends $grpc.Service {
-  $core.String get $name => 'api.example.v1.ExampleService';
+  $core.String get $name => 'api.example.ExampleService';
 
   ExampleServiceBase() {
     $addMethod($grpc.ServiceMethod<$0.ExampleRequest, $0.ExampleResponse>(

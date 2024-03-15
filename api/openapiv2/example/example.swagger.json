@@ -24,7 +24,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/v1ExampleResponse"
+              "$ref": "#/definitions/exampleExampleResponse"
             }
           },
           "default": {
@@ -40,7 +40,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/v1ExampleRequest"
+              "$ref": "#/definitions/exampleExampleRequest"
             }
           }
         ],
@@ -56,6 +56,36 @@
     }
   },
   "definitions": {
+    "exampleExampleRequest": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        }
+      },
+      "title": "CreateExampleRequest"
+    },
+    "exampleExampleResponse": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        }
+      },
+      "title": "CreateExampleResponse"
+    },
     "protobufAny": {
       "type": "object",
       "properties": {
@@ -83,36 +113,6 @@
           }
         }
       }
-    },
-    "v1ExampleRequest": {
-      "type": "object",
-      "properties": {
-        "title": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "body": {
-          "type": "string"
-        }
-      },
-      "title": "CreateExampleRequest"
-    },
-    "v1ExampleResponse": {
-      "type": "object",
-      "properties": {
-        "title": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "body": {
-          "type": "string"
-        }
-      },
-      "title": "CreateExampleResponse"
     }
   },
   "securityDefinitions": {

@@ -19,7 +19,7 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	ExampleService_Example_FullMethodName = "/api.example.v1.ExampleService/Example"
+	ExampleService_Example_FullMethodName = "/api.example.ExampleService/Example"
 )
 
 // ExampleServiceClient is the client API for ExampleService service.
@@ -96,7 +96,7 @@ func _ExampleService_Example_Handler(srv interface{}, ctx context.Context, dec f
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var ExampleService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "api.example.v1.ExampleService",
+	ServiceName: "api.example.ExampleService",
 	HandlerType: (*ExampleServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
