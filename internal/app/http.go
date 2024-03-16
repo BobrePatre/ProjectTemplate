@@ -29,7 +29,7 @@ func (a *App) initHTTPServer(_ context.Context) error {
 	authMiddlewareConstructor := a.diProvider.HttpAuthMiddlewareConstructor()
 
 	v1RouterGroup := router.Group("/api/v1", middlewares.CORSMiddleware())
-	example.NewRouter(v1RouterGroup, authMiddlewareConstructor(a.authProvider), a.diProvider.ExampleHandler()).RegisterRoutes()
+	example.NewRouter(v1RouterGroup, authMiddlewareConstructor(a.diProvider.WebAuthProvider()), a.diProvider.ExampleHandler()).RegisterRoutes()
 
 	router.Any("/grpc/v1/*any", gin.WrapH(a.gatewayServer))
 

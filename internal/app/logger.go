@@ -16,7 +16,7 @@ func (a *App) initLogger(_ context.Context) error {
 	case constants.EnvDevelopment:
 		logHandler = slog.NewTextHandler(os.Stdout, &slog.HandlerOptions{
 			Level:     slog.LevelDebug,
-			AddSource: false,
+			AddSource: true,
 		})
 	case constants.EnvProduction:
 		logHandler = slog.NewJSONHandler(os.Stdout, &slog.HandlerOptions{

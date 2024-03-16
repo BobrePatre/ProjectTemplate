@@ -18,7 +18,7 @@ func (a *App) initGRPCServer(_ context.Context) error {
 	a.grpcServer = grpc.NewServer(
 		grpc.Creds(insecure.NewCredentials()),
 		grpc.ChainUnaryInterceptor(
-			authInterceptorConstructor(a.authProvider),
+			authInterceptorConstructor(a.diProvider.WebAuthProvider()),
 		),
 	)
 

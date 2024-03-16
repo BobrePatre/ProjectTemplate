@@ -12,7 +12,7 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: postgres
     ports:
-      - "5433:5432"
+      - "5432:5432"
     volumes:
       - userdata:/var/lib/postgresql/data
     restart: always
@@ -23,7 +23,7 @@ services:
   auth:
     image: quay.io/keycloak/keycloak:latest
     ports:
-      - "8181:8080"
+      - "8180:8080"
     environment:
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
@@ -51,7 +51,7 @@ services:
     image: redis:latest
     restart: always
     ports:
-      - '6380:6379'
+      - '6379:6379'
     command: redis-server --save 20 1 --loglevel warning --requirepass password
     volumes:
       - cache:/data

@@ -1,0 +1,9 @@
+###
+GRPC localhost:50051/api.example.ExampleService/Example
+Authorization: Bearer {{$auth.token("keycloak")}}
+
+{
+  "title": "sadkkk",
+  "description": "asd",
+  "body": "asdsdaf"
+}

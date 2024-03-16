@@ -20,17 +20,6 @@ func (p *DiProvider) GRPCConfig() config.GRPCConfig {
 	return *p.grpcConfig
 }
 
-func (p *DiProvider) RedisConfig() config.RedisConfig {
-	if p.redisConfig == nil {
-		redisConfig, err := config.NewRedisConfig()
-		if err != nil {
-			log.Fatalf("failed to get redis config: %s", err.Error())
-		}
-		p.redisConfig = redisConfig
-	}
-	return *p.redisConfig
-}
-
 func (p *DiProvider) HTTPConfig() config.HttpConfig {
 	if p.httpConfig == nil {
 		cfg, err := config.NewHTTPConfig()

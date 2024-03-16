@@ -4,9 +4,7 @@ import (
 	"context"
 	"errors"
 	"github.com/BobrePatre/ProjectTemplate/internal/providers/di_provider"
-	webAuthProvider "github.com/BobrePatre/ProjectTemplate/internal/providers/web_auth_provider"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
-	"github.com/redis/go-redis/v9"
 	"log"
 	"log/slog"
 	"net/http"
@@ -27,8 +25,6 @@ type App struct {
 	gatewayServer *runtime.ServeMux
 	httpServer    *http.Server
 	logger        *slog.Logger
-	redis         *redis.Client
-	authProvider  webAuthProvider.WebAuthProvider
 }
 
 const (
