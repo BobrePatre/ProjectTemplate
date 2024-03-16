@@ -2,7 +2,7 @@ package converters
 
 import (
 	"github.com/BobrePatre/ProjectTemplate/internal/model"
-	desc "github.com/BobrePatre/ProjectTemplate/pkg/api/golang/example"
+	desc "github.com/BobrePatre/ProjectTemplate/pkg/api/grpc/golang/example"
 )
 
 func ExampleFromProtoRequest(request *desc.ExampleRequest) model.Example {

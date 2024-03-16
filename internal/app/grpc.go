@@ -2,7 +2,7 @@ package app
 
 import (
 	"context"
-	descExample "github.com/BobrePatre/ProjectTemplate/pkg/api/golang/example"
+	descExample "github.com/BobrePatre/ProjectTemplate/pkg/api/grpc/golang/example"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/grpc/reflection"

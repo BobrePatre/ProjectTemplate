@@ -6,7 +6,7 @@ import (
 	authProvider "github.com/BobrePatre/ProjectTemplate/internal/providers/web_auth_provider"
 	authModels "github.com/BobrePatre/ProjectTemplate/internal/providers/web_auth_provider/model"
 	"github.com/BobrePatre/ProjectTemplate/internal/service"
-	desc "github.com/BobrePatre/ProjectTemplate/pkg/api/golang/example"
+	desc "github.com/BobrePatre/ProjectTemplate/pkg/api/grpc/golang/example"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 	"log/slog"
