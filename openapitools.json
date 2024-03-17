@@ -2,28 +2,6 @@
   "$schema": "./node_modules/@openapitools/openapi-generator-cli/config.schema.json",
   "spaces": 2,
   "generator-cli": {
-    "version": "7.4.0",
-    "generators": {
-      "typescript": {
-        "glob": "api/openapiv2/**/*.swagger.json",
-        "generatorName": "typescript",
-        "output": "pkg/api/http/typescript/#{name}",
-        "additionalProperties": {
-          "usePromises": "true",
-          "useES6": "true",
-          "npmVersion": "1.0.0"
-        }
-      },
-      "dart": {
-        "glob": "api/openapiv2/**/*.swagger.json",
-        "generatorName": "dart-dio",
-        "output": "pkg/api/http/dart/#{name}"
-      },
-      "golang": {
-        "glob": "api/openapiv2/**/*.swagger.json",
-        "generatorName": "go",
-        "output": "pkg/api/http/golang/#{name}"
-      }
-    }
+    "version": "7.4.0"
   }
 }

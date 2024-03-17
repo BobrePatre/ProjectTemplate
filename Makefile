@@ -1,4 +1,4 @@
-all: generate-grpc generate-http beautifully-naming
+all: generate-grpc generate-http
 
 
 
@@ -103,7 +103,31 @@ generate-grpc: CREATE_GRPC_OUT_DIR CREATE_OPENAPI_OUT_DIR CREATE_GO_GRPC_OUT_DIR
 # Generating Libraries From OpenAPI
 generate-http:
 	@echo "Generating HTTP Libraries From OpenAPI...";
-	@openapi-generator-cli generate
+	@SWAGGER_FILES=$$(find $(OPENAPI_OUT_DIR) -name "*.swagger.json"); \
+	for file in $$SWAGGER_FILES; do \
+		name=$$(basename $$file .swagger.json); \
+		echo "Generating for $$file..."; \
+		echo "Generating typescript library"; \
+		openapi-generator-cli generate \
+			-i $$file \
+			-g typescript-axios \
+			-o $(HTTP_OUT_DIR)/$(TYPESCRIPT_OUT_DIR)/$$name \
+			--additional-properties usePromises=true \
+			--additional-properties npmVersion="1.5.3" \
+			--additional-properties 'npmName="Example Npm name lol"' \
+			--additional-properties npmRepository='https://github.com/BobrePatre/ProjectTemplate/tree/main/pkg/api/http/typescript/$$name.git' \
+			--additional-properties useES6=true; \
+		echo "Generating dart library"; \
+		openapi-generator-cli generate \
+			-i $$file \
+			-g dart-dio \
+			-o $(HTTP_OUT_DIR)/$(DART_OUT_DIR)/$$name; \
+		echo "Generating golang library"; \
+		openapi-generator-cli generate \
+			-i $$file \
+			-g  go \
+			-o $(HTTP_OUT_DIR)/$(GO_OUT_DIR)/$$name; \
+	done
 
 
 
@@ -117,9 +141,3 @@ validate-project:
 	fi
 	@echo "Project Is Valid!"
 
-
-beautifully-naming:
-	@echo "Renaming http lib directories"
-	@find pkg/api/http -type d -name "*.swagger" | while read -r dir; do \
-		mv "$$dir" "$${dir%.swagger}"; \
-	done

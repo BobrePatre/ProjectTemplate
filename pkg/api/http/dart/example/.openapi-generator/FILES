@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 README.md
 analysis_options.yaml
 doc/ApiexampleExampleRequest.md
@@ -24,8 +23,3 @@ lib/src/model/protobuf_any.dart
 lib/src/model/rpc_status.dart
 lib/src/serializers.dart
 pubspec.yaml
-test/apiexample_example_request_test.dart
-test/apiexample_example_response_test.dart
-test/example_service_api_test.dart
-test/protobuf_any_test.dart
-test/rpc_status_test.dart
