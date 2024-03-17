@@ -24,15 +24,15 @@ type ExampleServiceAPIService service
 type ApiExampleServiceExampleRequest struct {
 	ctx        context.Context
 	ApiService *ExampleServiceAPIService
-	body       *ExampleExampleRequest
+	body       *ApiexampleExampleRequest
 }
 
-func (r ApiExampleServiceExampleRequest) Body(body ExampleExampleRequest) ApiExampleServiceExampleRequest {
+func (r ApiExampleServiceExampleRequest) Body(body ApiexampleExampleRequest) ApiExampleServiceExampleRequest {
 	r.body = &body
 	return r
 }
 
-func (r ApiExampleServiceExampleRequest) Execute() (*ExampleExampleResponse, *http.Response, error) {
+func (r ApiExampleServiceExampleRequest) Execute() (*ApiexampleExampleResponse, *http.Response, error) {
 	return r.ApiService.ExampleServiceExampleExecute(r)
 }
 
@@ -51,13 +51,13 @@ func (a *ExampleServiceAPIService) ExampleServiceExample(ctx context.Context) Ap
 
 // Execute executes the request
 //
-//	@return ExampleExampleResponse
-func (a *ExampleServiceAPIService) ExampleServiceExampleExecute(r ApiExampleServiceExampleRequest) (*ExampleExampleResponse, *http.Response, error) {
+//	@return ApiexampleExampleResponse
+func (a *ExampleServiceAPIService) ExampleServiceExampleExecute(r ApiExampleServiceExampleRequest) (*ApiexampleExampleResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod  = http.MethodPost
 		localVarPostBody    interface{}
 		formFiles           []formFile
-		localVarReturnValue *ExampleExampleResponse
+		localVarReturnValue *ApiexampleExampleResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ExampleServiceAPIService.ExampleServiceExample")

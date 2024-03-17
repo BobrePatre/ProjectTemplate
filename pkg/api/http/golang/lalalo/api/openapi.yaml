@@ -1,0 +1,102 @@
+openapi: 3.0.1
+info:
+  title: Example API
+  version: v1
+servers:
+- url: /
+tags:
+- name: ExampleService
+paths:
+  /grpc/api/example:
+    post:
+      operationId: ExampleService_Example
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/apilalaExampleRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/apilalaExampleResponse'
+          description: A successful response.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/rpcStatus'
+          description: An unexpected error response.
+      security:
+      - BearerAuth: []
+      summary: Create an example
+      tags:
+      - ExampleService
+      x-codegen-request-body-name: body
+components:
+  schemas:
+    apilalaExampleRequest:
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        body:
+          type: string
+      title: CreateExampleRequest
+      type: object
+    apilalaExampleResponse:
+      example:
+        description: description
+        title: title
+        body: body
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        body:
+          type: string
+      title: CreateExampleResponse
+      type: object
+    protobufAny:
+      additionalProperties:
+        type: object
+      example:
+        '@type': '@type'
+      properties:
+        '@type':
+          type: string
+      type: object
+    rpcStatus:
+      example:
+        code: 0
+        details:
+        - '@type': '@type'
+        - '@type': '@type'
+        message: message
+      properties:
+        code:
+          format: int32
+          type: integer
+        message:
+          type: string
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+      type: object
+  securitySchemes:
+    BearerAuth:
+      flows:
+        authorizationCode:
+          authorizationUrl: https://keycloak.example.com/auth/realms/yourrealm/protocol/openid-connect/auth
+          scopes:
+            email: Email
+            openid: OpenID Connect
+            profile: Profile
+          tokenUrl: https://keycloak.example.com/auth/realms/yourrealm/protocol/openid-connect/token
+      type: oauth2
+x-original-swagger-version: "2.0"

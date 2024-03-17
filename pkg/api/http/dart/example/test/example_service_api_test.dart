@@ -9,7 +9,7 @@ void main() {
   group(ExampleServiceApi, () {
     // Create an example
     //
-    //Future<ExampleExampleResponse> exampleServiceExample(ExampleExampleRequest body) async
+    //Future<ApiexampleExampleResponse> exampleServiceExample(ApiexampleExampleRequest body) async
     test('test exampleServiceExample', () async {
       // TODO
     });

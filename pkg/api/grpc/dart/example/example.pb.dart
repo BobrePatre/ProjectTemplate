@@ -9,6 +9,7 @@
 // ignore_for_file: non_constant_identifier_names, prefer_final_fields
 // ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
+import 'dart:async' as $async;
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
@@ -167,6 +168,15 @@ class ExampleResponse extends $pb.GeneratedMessage {
   $core.bool hasBody() => $_has(2);
   @$pb.TagNumber(3)
   void clearBody() => clearField(3);
+}
+
+class ExampleServiceApi {
+  $pb.RpcClient _client;
+  ExampleServiceApi(this._client);
+
+  $async.Future<ExampleResponse> example($pb.ClientContext? ctx, ExampleRequest request) =>
+    _client.invoke<ExampleResponse>(ctx, 'ExampleService', 'Example', request, ExampleResponse())
+  ;
 }
 
 

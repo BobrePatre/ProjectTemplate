@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **exampleServiceExample**
-> ExampleExampleResponse exampleServiceExample(body)
+> ApiexampleExampleResponse exampleServiceExample(body)
 
 Create an example
 
@@ -24,7 +24,7 @@ import 'package:openapi/api.dart';
 //defaultApiClient.getAuthentication<OAuth>('BearerAuth').accessToken = 'YOUR_ACCESS_TOKEN';
 
 final api = Openapi().getExampleServiceApi();
-final ExampleExampleRequest body = ; // ExampleExampleRequest | 
+final ApiexampleExampleRequest body = ; // ApiexampleExampleRequest | 
 
 try {
     final response = api.exampleServiceExample(body);
@@ -38,11 +38,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ExampleExampleRequest**](ExampleExampleRequest.md)|  | 
+ **body** | [**ApiexampleExampleRequest**](ApiexampleExampleRequest.md)|  | 
 
 ### Return type
 
-[**ExampleExampleResponse**](ExampleExampleResponse.md)
+[**ApiexampleExampleResponse**](ApiexampleExampleResponse.md)
 
 ### Authorization
 

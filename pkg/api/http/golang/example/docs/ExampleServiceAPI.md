@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## ExampleServiceExample
 
-> ExampleExampleResponse ExampleServiceExample(ctx).Body(body).Execute()
+> ApiexampleExampleResponse ExampleServiceExample(ctx).Body(body).Execute()
 
 Create an example
 
@@ -27,7 +27,7 @@ import (
 )
 
 func main() {
-	body := *openapiclient.NewExampleExampleRequest() // ExampleExampleRequest | 
+	body := *openapiclient.NewApiexampleExampleRequest() // ApiexampleExampleRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -36,7 +36,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `ExampleServiceAPI.ExampleServiceExample``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `ExampleServiceExample`: ExampleExampleResponse
+	// response from `ExampleServiceExample`: ApiexampleExampleResponse
 	fmt.Fprintf(os.Stdout, "Response from `ExampleServiceAPI.ExampleServiceExample`: %v\n", resp)
 }
 ```
@@ -52,11 +52,11 @@ Other parameters are passed through a pointer to a apiExampleServiceExampleReque
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ExampleExampleRequest**](ExampleExampleRequest.md) |  | 
+ **body** | [**ApiexampleExampleRequest**](ApiexampleExampleRequest.md) |  | 
 
 ### Return type
 
-[**ExampleExampleResponse**](ExampleExampleResponse.md)
+[**ApiexampleExampleResponse**](ApiexampleExampleResponse.md)
 
 ### Authorization
 

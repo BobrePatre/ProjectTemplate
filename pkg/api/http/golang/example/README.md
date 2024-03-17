@@ -84,8 +84,8 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
- - [ExampleExampleRequest](docs/ExampleExampleRequest.md)
- - [ExampleExampleResponse](docs/ExampleExampleResponse.md)
+ - [ApiexampleExampleRequest](docs/ApiexampleExampleRequest.md)
+ - [ApiexampleExampleResponse](docs/ApiexampleExampleResponse.md)
  - [ProtobufAny](docs/ProtobufAny.md)
  - [RpcStatus](docs/RpcStatus.md)
 

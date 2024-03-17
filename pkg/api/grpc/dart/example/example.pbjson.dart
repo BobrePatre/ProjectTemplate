@@ -47,3 +47,22 @@ final $typed_data.Uint8List exampleResponseDescriptor = $convert.base64Decode(
     'IgASgJUgtkZXNjcmlwdGlvbhISCgRib2R5GAMgASgJUgRib2R5OhySQRkKFyoVQ3JlYXRlRXhh'
     'bXBsZVJlc3BvbnNl');
 
+const $core.Map<$core.String, $core.dynamic> ExampleServiceBase$json = {
+  '1': 'ExampleService',
+  '2': [
+    {'1': 'Example', '2': '.api.example.ExampleRequest', '3': '.api.example.ExampleResponse', '4': {}},
+  ],
+};
+
+@$core.Deprecated('Use exampleServiceDescriptor instead')
+const $core.Map<$core.String, $core.Map<$core.String, $core.dynamic>> ExampleServiceBase$messageJson = {
+  '.api.example.ExampleRequest': ExampleRequest$json,
+  '.api.example.ExampleResponse': ExampleResponse$json,
+};
+
+/// Descriptor for `ExampleService`. Decode as a `google.protobuf.ServiceDescriptorProto`.
+final $typed_data.Uint8List exampleServiceDescriptor = $convert.base64Decode(
+    'Cg5FeGFtcGxlU2VydmljZRKKAQoHRXhhbXBsZRIbLmFwaS5leGFtcGxlLkV4YW1wbGVSZXF1ZX'
+    'N0GhwuYXBpLmV4YW1wbGUuRXhhbXBsZVJlc3BvbnNlIkSSQSUSEUNyZWF0ZSBhbiBleGFtcGxl'
+    'YhAKDgoKQmVhcmVyQXV0aBIAgtPkkwIWIhEvZ3JwYy9hcGkvZXhhbXBsZToBKg==');
+

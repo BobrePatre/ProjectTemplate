@@ -24,7 +24,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/exampleExampleResponse"
+              "$ref": "#/definitions/apiexampleExampleResponse"
             }
           },
           "default": {
@@ -40,7 +40,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/exampleExampleRequest"
+              "$ref": "#/definitions/apiexampleExampleRequest"
             }
           }
         ],
@@ -56,7 +56,7 @@
     }
   },
   "definitions": {
-    "exampleExampleRequest": {
+    "apiexampleExampleRequest": {
       "type": "object",
       "properties": {
         "title": {
@@ -71,7 +71,7 @@
       },
       "title": "CreateExampleRequest"
     },
-    "exampleExampleResponse": {
+    "apiexampleExampleResponse": {
       "type": "object",
       "properties": {
         "title": {

@@ -14,14 +14,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/exampleExampleRequest'
+              $ref: '#/components/schemas/apiexampleExampleRequest'
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/exampleExampleResponse'
+                $ref: '#/components/schemas/apiexampleExampleResponse'
           description: A successful response.
         default:
           content:
@@ -37,7 +37,7 @@ paths:
       x-codegen-request-body-name: body
 components:
   schemas:
-    exampleExampleRequest:
+    apiexampleExampleRequest:
       properties:
         title:
           type: string
@@ -47,7 +47,7 @@ components:
           type: string
       title: CreateExampleRequest
       type: object
-    exampleExampleResponse:
+    apiexampleExampleResponse:
       example:
         description: description
         title: title

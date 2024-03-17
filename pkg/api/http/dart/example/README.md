@@ -48,7 +48,7 @@ import 'package:openapi/openapi.dart';
 
 
 final api = Openapi().getExampleServiceApi();
-final ExampleExampleRequest body = ; // ExampleExampleRequest | 
+final ApiexampleExampleRequest body = ; // ApiexampleExampleRequest | 
 
 try {
     final response = await api.exampleServiceExample(body);
@@ -70,8 +70,8 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
- - [ExampleExampleRequest](doc/ExampleExampleRequest.md)
- - [ExampleExampleResponse](doc/ExampleExampleResponse.md)
+ - [ApiexampleExampleRequest](doc/ApiexampleExampleRequest.md)
+ - [ApiexampleExampleResponse](doc/ApiexampleExampleResponse.md)
  - [ProtobufAny](doc/ProtobufAny.md)
  - [RpcStatus](doc/RpcStatus.md)
 

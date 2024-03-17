@@ -1,9 +1,9 @@
-all: generate-grpc generate-http
+all: generate-grpc generate-http beautifully-naming
 
 
 
 # Base Paths
-PROTO_DIR=api
+PROTO_DIR=api/proto
 PROTO_FILES=$(shell find $(PROTO_DIR) -name '*.proto')
 OPENAPI_OUT_DIR=api/openapiv2
 OUT_DIR=pkg/api
@@ -86,15 +86,16 @@ generate-grpc: CREATE_GRPC_OUT_DIR CREATE_OPENAPI_OUT_DIR CREATE_GO_GRPC_OUT_DIR
 	@protoc -I$(PROTO_DIR) \
 	-I$(GOOGLE_APIS_DIR) \
 	-I$(GRPC_GATEWAY_DIR) \
-	--go_out=$(GRPC_OUT_DIR)/$(GO_OUT_DIR) \
-	--go_opt=paths=source_relative \
-	--go-grpc_out=$(GRPC_OUT_DIR)/$(GO_OUT_DIR) \
-	--go-grpc_opt=paths=source_relative \
-	--grpc-gateway_out=$(GRPC_OUT_DIR)/$(GO_OUT_DIR) \
-	--grpc-gateway_opt=paths=source_relative \
-	--openapiv2_out=$(OPENAPI_OUT_DIR) \
-	--openapiv2_opt=use_go_templates=true,preserve_rpc_order=true \
-	--dart_out=grpc:$(GRPC_OUT_DIR)/$(DART_OUT_DIR) \
+	--go_out $(GRPC_OUT_DIR)/$(GO_OUT_DIR) \
+	--go_opt paths=source_relative \
+	--go-grpc_out $(GRPC_OUT_DIR)/$(GO_OUT_DIR) \
+	--go-grpc_opt paths=source_relative \
+	--grpc-gateway_out $(GRPC_OUT_DIR)/$(GO_OUT_DIR) \
+	--grpc-gateway_opt paths=source_relative \
+	--openapiv2_out $(OPENAPI_OUT_DIR) \
+	--openapiv2_opt import_prefix=lol \
+	--openapiv2_opt use_go_templates=true,preserve_rpc_order=true \
+	--dart_out $(GRPC_OUT_DIR)/$(DART_OUT_DIR) \
 	$(PROTO_FILES)
 
 
@@ -102,27 +103,8 @@ generate-grpc: CREATE_GRPC_OUT_DIR CREATE_OPENAPI_OUT_DIR CREATE_GO_GRPC_OUT_DIR
 # Generating Libraries From OpenAPI
 generate-http:
 	@echo "Generating HTTP Libraries From OpenAPI...";
-	@SWAGGER_FILES=$$(find $(OPENAPI_OUT_DIR) -name "*.swagger.json"); \
-	for file in $$SWAGGER_FILES; do \
-		name=$$(basename $$file .swagger.json); \
-		echo "Generating for $$file..."; \
-		echo "Generating typescript library"; \
-		openapi-generator-cli generate \
-			-i $$file \
-			-g typescript-axios \
-			-o $(HTTP_OUT_DIR)/$(TYPESCRIPT_OUT_DIR)/$$name \
-			--additional-properties=usePromises=true,useES6=true; \
-		echo "Generating dart library"; \
-		openapi-generator-cli generate \
-			-i $$file \
-			-g dart-dio \
-			-o $(HTTP_OUT_DIR)/$(DART_OUT_DIR)/$$name; \
-		echo "Generating golang library"; \
-		openapi-generator-cli generate \
-			-i $$file \
-			-g  go \
-			-o $(HTTP_OUT_DIR)/$(GO_OUT_DIR)/$$name; \
-	done
+	@openapi-generator-cli generate
+
 
 
 # Validate Api Folder, wich
@@ -136,3 +118,8 @@ validate-project:
 	@echo "Project Is Valid!"
 
 
+beautifully-naming:
+	@echo "Renaming http lib directories"
+	@find pkg/api/http -type d -name "*.swagger" | while read -r dir; do \
+		mv "$$dir" "$${dir%.swagger}"; \
+	done

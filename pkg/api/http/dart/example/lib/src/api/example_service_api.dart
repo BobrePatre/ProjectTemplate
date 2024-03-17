@@ -7,8 +7,8 @@ import 'dart:async';
 import 'package:built_value/serializer.dart';
 import 'package:dio/dio.dart';
 
-import 'package:openapi/src/model/example_example_request.dart';
-import 'package:openapi/src/model/example_example_response.dart';
+import 'package:openapi/src/model/apiexample_example_request.dart';
+import 'package:openapi/src/model/apiexample_example_response.dart';
 import 'package:openapi/src/model/rpc_status.dart';
 
 class ExampleServiceApi {
@@ -31,10 +31,10 @@ class ExampleServiceApi {
   /// * [onSendProgress] - A [ProgressCallback] that can be used to get the send progress
   /// * [onReceiveProgress] - A [ProgressCallback] that can be used to get the receive progress
   ///
-  /// Returns a [Future] containing a [Response] with a [ExampleExampleResponse] as data
+  /// Returns a [Future] containing a [Response] with a [ApiexampleExampleResponse] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<ExampleExampleResponse>> exampleServiceExample({ 
-    required ExampleExampleRequest body,
+  Future<Response<ApiexampleExampleResponse>> exampleServiceExample({ 
+    required ApiexampleExampleRequest body,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -64,7 +64,7 @@ class ExampleServiceApi {
     dynamic _bodyData;
 
     try {
-      const _type = FullType(ExampleExampleRequest);
+      const _type = FullType(ApiexampleExampleRequest);
       _bodyData = _serializers.serialize(body, specifiedType: _type);
 
     } catch(error, stackTrace) {
@@ -88,14 +88,14 @@ class ExampleServiceApi {
       onReceiveProgress: onReceiveProgress,
     );
 
-    ExampleExampleResponse? _responseData;
+    ApiexampleExampleResponse? _responseData;
 
     try {
       final rawResponse = _response.data;
       _responseData = rawResponse == null ? null : _serializers.deserialize(
         rawResponse,
-        specifiedType: const FullType(ExampleExampleResponse),
-      ) as ExampleExampleResponse;
+        specifiedType: const FullType(ApiexampleExampleResponse),
+      ) as ApiexampleExampleResponse;
 
     } catch (error, stackTrace) {
       throw DioException(
@@ -107,7 +107,7 @@ class ExampleServiceApi {
       );
     }
 
-    return Response<ExampleExampleResponse>(
+    return Response<ApiexampleExampleResponse>(
       data: _responseData,
       headers: _response.headers,
       isRedirect: _response.isRedirect,

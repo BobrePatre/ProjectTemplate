@@ -14,16 +14,16 @@ import 'package:built_value/iso_8601_date_time_serializer.dart';
 import 'package:openapi/src/date_serializer.dart';
 import 'package:openapi/src/model/date.dart';
 
-import 'package:openapi/src/model/example_example_request.dart';
-import 'package:openapi/src/model/example_example_response.dart';
+import 'package:openapi/src/model/apiexample_example_request.dart';
+import 'package:openapi/src/model/apiexample_example_response.dart';
 import 'package:openapi/src/model/protobuf_any.dart';
 import 'package:openapi/src/model/rpc_status.dart';
 
 part 'serializers.g.dart';
 
 @SerializersFor([
-  ExampleExampleRequest,
-  ExampleExampleResponse,
+  ApiexampleExampleRequest,
+  ApiexampleExampleResponse,
   ProtobufAny,
   RpcStatus,
 ])
