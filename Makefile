@@ -113,9 +113,6 @@ generate-http:
 			-g typescript-axios \
 			-o $(HTTP_OUT_DIR)/$(TYPESCRIPT_OUT_DIR)/$$name \
 			--additional-properties usePromises=true \
-			--additional-properties npmVersion="1.5.3" \
-			--additional-properties 'npmName="Example Npm name lol"' \
-			--additional-properties npmRepository='https://github.com/BobrePatre/ProjectTemplate/tree/main/pkg/api/http/typescript/$$name.git' \
 			--additional-properties useES6=true; \
 		echo "Generating dart library"; \
 		openapi-generator-cli generate \
