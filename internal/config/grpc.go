@@ -1,22 +1,26 @@
 package config
 
 import (
+	"fmt"
+	"github.com/go-playground/validator/v10"
 	"net"
 )
 
-type GRPCConfig struct {
-	Port string `env:"GRPC_PORT" env-default:"50051"`
+type GrpcConfig struct {
+	Port string `env:"PORT" env-default:"50051" json:"grpc"`
 }
 
-func NewGRPCConfig() (*GRPCConfig, error) {
-	var cfg GRPCConfig
-	err := Load(&cfg)
-	if err != nil {
+func NewGrpcConfig(validate *validator.Validate) (*GrpcConfig, error) {
+	var cfg struct {
+		Config GrpcConfig `env-prefix:"GRPC_" json:"grpc"`
+	}
+	if err := Load(&cfg, validate); err != nil {
 		return nil, err
 	}
-	return &cfg, nil
+
+	return &cfg.Config, nil
 }
 
-func (cfg GRPCConfig) Address() string {
-	return net.JoinHostPort("localhost", cfg.Port)
+func (cfg *GrpcConfig) Address() string {
+	return net.JoinHostPort("localhost", fmt.Sprint(cfg.Port))
 }

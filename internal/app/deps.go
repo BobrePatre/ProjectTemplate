@@ -9,7 +9,7 @@ var _ = (*App)(nil)
 
 func (a *App) initDeps(ctx context.Context) error {
 	inits := []configFunc{
-		a.initdiProvider,
+		a.initDiProvider,
 		a.initLogger,
 		a.initGRPCServer,
 		a.initGatewayServer,
@@ -26,7 +26,7 @@ func (a *App) initDeps(ctx context.Context) error {
 	return nil
 }
 
-func (a *App) initdiProvider(_ context.Context) error {
-	a.diProvider = di_provider.NewDiProvider()
+func (a *App) initDiProvider(_ context.Context) error {
+	a.diProvider = diProvider.NewDiProvider()
 	return nil
 }

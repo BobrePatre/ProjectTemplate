@@ -5,12 +5,12 @@ import (
 	"crypto/rsa"
 	"fmt"
 	"github.com/BobrePatre/ProjectTemplate/internal/providers/web_auth_provider"
-	authErrors "github.com/BobrePatre/ProjectTemplate/internal/providers/web_auth_provider/model"
+	authErrors "github.com/BobrePatre/ProjectTemplate/internal/providers/web_auth_provider/models"
 	"github.com/golang-jwt/jwt"
 	"log/slog"
 )
 
-var _ web_auth_provider.WebAuthProvider = (*Provider)(nil)
+var _ webAuthProvider.WebAuthProvider = (*Provider)(nil)
 
 func (p *Provider) VerifyToken(ctx context.Context, tokenString string) (token *jwt.Token, err error) {
 

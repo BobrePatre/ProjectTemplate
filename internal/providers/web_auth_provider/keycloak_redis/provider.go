@@ -3,7 +3,7 @@ package keycloak_redis
 import (
 	"context"
 	"github.com/BobrePatre/ProjectTemplate/internal/providers/web_auth_provider"
-	"github.com/BobrePatre/ProjectTemplate/internal/providers/web_auth_provider/model"
+	"github.com/BobrePatre/ProjectTemplate/internal/providers/web_auth_provider/models"
 	"github.com/go-playground/validator/v10"
 	"github.com/golang-jwt/jwt"
 	"github.com/mitchellh/mapstructure"
@@ -11,16 +11,16 @@ import (
 	"log/slog"
 )
 
-var _ web_auth_provider.WebAuthProvider = (*Provider)(nil)
+var _ webAuthProvider.WebAuthProvider = (*Provider)(nil)
 
 type Provider struct {
 	redis    *redis.Client
-	jwkOpts  web_auth_provider.JwkOptions
+	jwkOpts  webAuthProvider.JwkOptions
 	validate *validator.Validate
 	clientID string
 }
 
-func NewProvider(redis *redis.Client, jwkOpts web_auth_provider.JwkOptions, validate *validator.Validate, clientID string) *Provider {
+func NewProvider(redis *redis.Client, jwkOpts webAuthProvider.JwkOptions, validate *validator.Validate, clientID string) *Provider {
 	return &Provider{
 		redis:    redis,
 		jwkOpts:  jwkOpts,
@@ -29,29 +29,29 @@ func NewProvider(redis *redis.Client, jwkOpts web_auth_provider.JwkOptions, vali
 	}
 }
 
-func (p *Provider) Authorize(ctx context.Context, tokenString string, neededRoles []string) (model.UserDetails, error) {
+func (p *Provider) Authorize(ctx context.Context, tokenString string, neededRoles []string) (models.UserDetails, error) {
 	token, err := p.VerifyToken(ctx, tokenString)
 	if err != nil {
 		slog.Error("failed to verify token", slog.String("err", err.Error()))
-		return model.UserDetails{}, model.InvalidTokenError
+		return models.UserDetails{}, models.InvalidTokenError
 	}
 
 	claims, ok := token.Claims.(jwt.MapClaims)
 
 	if !(ok && token.Valid) {
 		slog.Error("failed to get claims", slog.String("err", err.Error()))
-		return model.UserDetails{}, model.InvalidTokenError
+		return models.UserDetails{}, models.InvalidTokenError
 	}
 
 	if claims["sub"] == "" || claims["sub"] == nil {
 		slog.Error("failed to validate sub claim", slog.String("err", err.Error()))
-		return model.UserDetails{}, model.InvalidTokenError
+		return models.UserDetails{}, models.InvalidTokenError
 	}
 
 	err = p.validate.Var(claims["sub"], "uuid4")
 	if err != nil {
 		slog.Error("failed to validate sub claim", slog.String("err", err.Error()))
-		return model.UserDetails{}, err
+		return models.UserDetails{}, err
 	}
 
 	var userRoles []string
@@ -69,7 +69,7 @@ func (p *Provider) Authorize(ctx context.Context, tokenString string, neededRole
 		userEmail = ""
 	}
 
-	userDetails := model.UserDetails{
+	userDetails := models.UserDetails{
 		Roles:      userRoles,
 		UserId:     claims["sub"].(string),
 		Email:      userEmail,
@@ -81,7 +81,7 @@ func (p *Provider) Authorize(ctx context.Context, tokenString string, neededRole
 	if !p.IsUserHaveRoles(neededRoles, userRoles) {
 		slog.Error("user data", slog.Any("userDetails", userDetails))
 		slog.Error("user doesn't have needed roles", slog.Any("neededRoles", neededRoles), slog.Any("userRoles", userRoles))
-		return userDetails, model.AccessDeniedError
+		return userDetails, models.AccessDeniedError
 	}
 
 	return userDetails, nil

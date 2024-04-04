@@ -1,4 +1,4 @@
-package di_provider
+package diProvider
 
 import "github.com/go-playground/validator/v10"
 

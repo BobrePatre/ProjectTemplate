@@ -1,18 +1,24 @@
-package di_provider
+package diProvider
 
 import (
 	"context"
 	"github.com/BobrePatre/ProjectTemplate/internal/config"
 	"github.com/redis/go-redis/v9"
-	"log"
+	"log/slog"
+	"os"
 	"time"
+)
+
+const (
+	redisSuccessResponse = "PONG"
 )
 
 func (p *DiProvider) RedisConfig() config.RedisConfig {
 	if p.redisConfig == nil {
-		redisConfig, err := config.NewRedisConfig()
+		redisConfig, err := config.NewRedisConfig(p.Validate())
 		if err != nil {
-			log.Fatalf("failed to get redis config: %s", err.Error())
+			slog.Error("failed to get redis config", "err", err.Error())
+			os.Exit(1)
 		}
 		p.redisConfig = redisConfig
 	}
@@ -33,11 +39,13 @@ func (p *DiProvider) RedisClient() *redis.Client {
 		status := p.redisClient.Ping(timeoutCtx)
 		result, err := status.Result()
 		if err != nil {
-			log.Fatalf("failed to connect to redis: %s", err.Error())
+			slog.Error("failed to connect to redis", "error", err.Error())
+			os.Exit(1)
 		}
 
-		if result != "PONG" {
-			log.Fatalf("failed to connect to redis: %s", err.Error())
+		if result != redisSuccessResponse {
+			slog.Error("failed to connect to redis", "error", err.Error())
+			os.Exit(1)
 		}
 	}
 

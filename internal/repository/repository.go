@@ -2,9 +2,11 @@ package repository
 
 import (
 	"context"
-	"github.com/BobrePatre/ProjectTemplate/internal/model"
+	"github.com/BobrePatre/ProjectTemplate/internal/models"
 )
 
-type ExampleRepository interface {
-	Example(context.Context, model.Example) (model.Example, error)
-}
+type (
+	ExampleRepository interface {
+		Example(context.Context, models.Example) (models.Example, error)
+	}
+)

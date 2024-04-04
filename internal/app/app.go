@@ -3,8 +3,9 @@ package app
 import (
 	"context"
 	"errors"
-	"github.com/BobrePatre/ProjectTemplate/internal/providers/di_provider"
+	diProvider "github.com/BobrePatre/ProjectTemplate/internal/providers/di_provider"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
+	"google.golang.org/grpc"
 	"log"
 	"log/slog"
 	"net/http"
@@ -13,14 +14,12 @@ import (
 	"sync"
 	"syscall"
 	"time"
-
-	"google.golang.org/grpc"
 )
 
 type configFunc func(context.Context) error
 
 type App struct {
-	diProvider    *di_provider.DiProvider
+	diProvider    *diProvider.DiProvider
 	grpcServer    *grpc.Server
 	gatewayServer *runtime.ServeMux
 	httpServer    *http.Server
@@ -34,8 +33,8 @@ const (
 )
 
 var (
-	grpcServerTag = slog.String("server", "grpc")
 	httpServerTag = slog.String("server", "http")
+	grpcServerTag = slog.String("server", "grpc")
 )
 
 func NewApp(ctx context.Context) (*App, error) {
@@ -59,7 +58,6 @@ func (a *App) Run() {
 
 	go func() {
 		defer wg.Done()
-
 		if err := a.runGRPCServer(); err != nil {
 			log.Fatal(err)
 		}

@@ -1,15 +1,15 @@
 ```
-├── api
+├── delivery
 │   ├── example
 │   │   └── example.proto
-│   └── openapiv2
+│   └── opendeliveryv2
 │       └── example
 │           └── example.swagger.json
 ├── cmd
 │   └── grpc_server
 │       └── main.go
 ├── internal
-│   ├── api
+│   ├── delivery
 │   │   ├── grpc
 │   │   │   ├── converters
 │   │   │   ├── example
@@ -43,7 +43,7 @@
 │   └── utils
 │       └── helpers
 ├── pkg
-│   ├── api
+│   ├── delivery
 │   │   ├── dart
 │   │   │   └── example
 │   │   ├── golang
@@ -51,7 +51,7 @@
 │   │   └── typescript
 │   │       └── example
 │   └── vendor
-│       ├── googleapis
+│       ├── googledeliverys
 │       └── grpc-gateway
 ├── docker-compose.yml
 ├── Makefile
@@ -61,19 +61,19 @@
 ├── grpc.http
 ├── http-client.env.json
 ├── internal
-├── openapitools.json
+├── opendeliverytools.json
 └── realms
     └── example-realm.json
 ```
 
 Данная структура проекта предназначена для организации разработки на языке Go,
-поддерживающей как gRPC, так и REST API. Вот подробное описание каждой из компонентов структуры проекта:
+поддерживающей как gRPC, так и REST delivery. Вот подробное описание каждой из компонентов структуры проекта:
 
 ### Основные Каталоги
 
-- **`api`**: Содержит определения API.
+- **`delivery`**: Содержит определения delivery.
     - **`example`**: Включает `example.proto`, файлы protobuf для определения gRPC сервисов.
-    - **`openapiv2/example`**: Содержит `example.swagger.json`, описания REST API в формате Swagger, что облегчает
+    - **`opendeliveryv2/example`**: Содержит `example.swagger.json`, описания REST delivery в формате Swagger, что облегчает
       генерацию документации и клиентских библиотек.
 
 - **`cmd`**: Каталог для исполняемых файлов или точек входа.
@@ -81,7 +81,7 @@
 
 ### Внутренняя Структура (`internal`)
 
-- **`api`**: Содержит логику обработки APIы
+- **`delivery`**: Содержит логику обработки deliveryы
 - 
 - .
     - **`grpc`** Подкаталог для gRPC обработчиков
@@ -94,7 +94,7 @@
           ответы (`response`).
         - **`handlers`**: Обработчики HTTP запросов.
         - **`middlewares`**: Промежуточное программное обеспечение для HTTP запросов.
-        - **`routes`**: Определения маршрутов для HTTP API.
+        - **`routes`**: Определения маршрутов для HTTP delivery.
 
 - **`app`**: Основные компоненты (gRPC server, HTTP server) и их конфигурация с вредрением зависимостей из di провайдера
 
@@ -124,13 +124,13 @@
 
 ### Дополнительные Компоненты и Конфигурации
 
-- **`pkg`**: Внешние библиотеки и сгенерированные клиентские библиотеки для API проекта
-    - **`api`**: Подкаталоги для Dart, Go, TypeScript с клиентскими библиотеками и grpc сервером
-    - **`vendor`**: Внешние зависимости и библиотеки, включая `googleapis` и `grpc-gateway`.
+- **`pkg`**: Внешние библиотеки и сгенерированные клиентские библиотеки для delivery проекта
+    - **`delivery`**: Подкаталоги для Dart, Go, TypeScript с клиентскими библиотеками и grpc сервером
+    - **`vendor`**: Внешние зависимости и библиотеки, включая `googledeliverys` и `grpc-gateway`.
 
 
 - **`docker-compose.yml`**, **`Makefile`**, **`go.mod`**, **`go.sum`**, **`grpc.http`**, **`http-client.env.json`**, *
-  *`openapitools.json`**: Инструменты и файлы конфигурации для управления зависимостями, сборки, развертывания и
+  *`opendeliverytools.json`**: Инструменты и файлы конфигурации для управления зависимостями, сборки, развертывания и
   тестирования проекта.
 
 - **`realms`**: Конфигурации realm (Особенность SSO Keycloak)

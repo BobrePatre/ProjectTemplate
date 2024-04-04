@@ -1,0 +1,16 @@
+{
+  "app": {
+    "env": "development"
+  },
+  "auth": {
+    "clientId": "example-client",
+    "publicJwkUri": "http://localhost:8180/realms/example-realm/protocol/openid-connect/certs"
+  },
+  "redis": {
+    "host": "localhost",
+    "password": "password"
+  },
+  "postgres": {
+    "host": "localhost"
+  }
+}

@@ -1,8 +1,10 @@
 package example
 
-import "github.com/BobrePatre/ProjectTemplate/internal/model"
+import (
+	"github.com/BobrePatre/ProjectTemplate/internal/models"
+)
 
-func RepoFromService(example model.Example) Example {
+func RepoFromService(example models.Example) Example {
 	return Example{
 		Title:       example.Title,
 		Description: example.Description,

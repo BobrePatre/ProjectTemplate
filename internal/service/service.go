@@ -2,10 +2,11 @@ package service
 
 import (
 	"context"
-
-	"github.com/BobrePatre/ProjectTemplate/internal/model"
+	"github.com/BobrePatre/ProjectTemplate/internal/models"
 )
 
-type ExampleService interface {
-	Example(ctx context.Context, example model.Example) (model.Example, error)
-}
+type (
+	ExampleService interface {
+		Example(ctx context.Context, example models.Example) (models.Example, error)
+	}
+)

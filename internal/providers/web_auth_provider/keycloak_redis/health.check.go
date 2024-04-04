@@ -6,7 +6,7 @@ import (
 	"github.com/lestrrat-go/jwx/jwk"
 )
 
-var _ web_auth_provider.WebAuthProvider = (*Provider)(nil)
+var _ webAuthProvider.WebAuthProvider = (*Provider)(nil)
 
 func (p *Provider) CheckSsoConnection(ctx context.Context) error {
 

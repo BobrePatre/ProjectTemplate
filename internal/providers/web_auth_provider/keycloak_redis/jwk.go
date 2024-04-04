@@ -7,11 +7,11 @@ import (
 	"log/slog"
 )
 
-var _ web_auth_provider.WebAuthProvider = (*Provider)(nil)
+var _ webAuthProvider.WebAuthProvider = (*Provider)(nil)
 
 func (p *Provider) FetchJwkSet(ctx context.Context) (jwk.Set, error) {
 
-	result, err := p.redis.Get(ctx, web_auth_provider.JwkKeySet).Result()
+	result, err := p.redis.Get(ctx, webAuthProvider.JwkKeySet).Result()
 	if err == nil {
 		slog.Info("Jwk get from cache")
 		resultSet, err := p.DeserializeJwkSet(result)
@@ -32,7 +32,7 @@ func (p *Provider) FetchJwkSet(ctx context.Context) (jwk.Set, error) {
 		return nil, err
 	}
 
-	err = p.redis.Set(ctx, web_auth_provider.JwkKeySet, serializedKeySet, p.jwkOpts.RefreshJwkTimeout).Err()
+	err = p.redis.Set(ctx, webAuthProvider.JwkKeySet, serializedKeySet, p.jwkOpts.RefreshJwkTimeout).Err()
 	if err != nil {
 		return nil, err
 	}

@@ -2,7 +2,7 @@ package example
 
 import (
 	"context"
-	"github.com/BobrePatre/ProjectTemplate/internal/model"
+	"github.com/BobrePatre/ProjectTemplate/internal/models"
 	"github.com/BobrePatre/ProjectTemplate/internal/repository"
 	def "github.com/BobrePatre/ProjectTemplate/internal/service"
 )
@@ -19,15 +19,15 @@ func NewService(repository repository.ExampleRepository) *Service {
 	}
 }
 
-func (s *Service) Example(ctx context.Context, example model.Example) (model.Example, error) {
+func (s *Service) Example(ctx context.Context, example models.Example) (models.Example, error) {
 
 	if len(example.Title) < 4 {
-		return model.Example{}, model.ErrorExampleTitleTooShort
+		return models.Example{}, models.ErrorExampleTitleTooShort
 	}
 
 	m, err := s.repository.Example(ctx, example)
 	if err != nil {
-		return model.Example{}, err
+		return models.Example{}, err
 	}
 	return m, nil
 }

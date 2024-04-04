@@ -1,8 +1,8 @@
-package web_auth_provider
+package webAuthProvider
 
 import (
 	"context"
-	"github.com/BobrePatre/ProjectTemplate/internal/providers/web_auth_provider/model"
+	"github.com/BobrePatre/ProjectTemplate/internal/providers/web_auth_provider/models"
 	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt"
 	"github.com/lestrrat-go/jwx/jwk"
@@ -17,7 +17,7 @@ type WebAuthProvider interface {
 	IsUserHaveRoles(roles []string, userRoles []string) bool
 	SerializeJwkSet(key jwk.Set) (string, error)
 	DeserializeJwkSet(serializedKey string) (jwk.Set, error)
-	Authorize(ctx context.Context, tokenString string, roles []string) (model.UserDetails, error)
+	Authorize(ctx context.Context, tokenString string, roles []string) (models.UserDetails, error)
 	CheckSsoConnection(ctx context.Context) error
 }
 
@@ -31,6 +31,8 @@ type JwkOptions struct {
 	JwkPublicUri      string
 }
 
-type AuthHttpMiddleware func(roles ...string) gin.HandlerFunc
-type AuthHttpMiddlewareConstructor func(provider WebAuthProvider) func(roles ...string) gin.HandlerFunc
-type AuthGrpcUnaryInterceptorConstructor func(provider WebAuthProvider) grpc.UnaryServerInterceptor
+type (
+	AuthHttpMiddleware                  func(roles ...string) gin.HandlerFunc
+	AuthHttpMiddlewareConstructor       func(provider WebAuthProvider) func(roles ...string) gin.HandlerFunc
+	AuthGrpcUnaryInterceptorConstructor func(provider WebAuthProvider) grpc.UnaryServerInterceptor
+)

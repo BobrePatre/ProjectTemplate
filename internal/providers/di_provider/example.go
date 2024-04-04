@@ -1,8 +1,8 @@
-package di_provider
+package diProvider
 
 import (
-	"github.com/BobrePatre/ProjectTemplate/internal/api/grpc/example"
-	example2 "github.com/BobrePatre/ProjectTemplate/internal/api/http/handlers/example"
+	exampleGrpc "github.com/BobrePatre/ProjectTemplate/internal/delivery/grpc/impl/example"
+	exampleHttp "github.com/BobrePatre/ProjectTemplate/internal/delivery/http/handlers/example"
 	"github.com/BobrePatre/ProjectTemplate/internal/repository"
 	exampleRepository "github.com/BobrePatre/ProjectTemplate/internal/repository/example"
 	"github.com/BobrePatre/ProjectTemplate/internal/service"
@@ -25,16 +25,16 @@ func (p *DiProvider) ExampleService() service.ExampleService {
 	return p.exampleService
 }
 
-func (p *DiProvider) ExampleHandler() *example2.Handler {
+func (p *DiProvider) ExampleHandler() *exampleHttp.Handler {
 	if p.exampleHandler == nil {
-		p.exampleHandler = example2.NewHandler(p.ExampleService())
+		p.exampleHandler = exampleHttp.NewHandler(p.ExampleService())
 	}
 	return p.exampleHandler
 }
 
-func (p *DiProvider) ExampleImpl() *example.Implementation {
+func (p *DiProvider) ExampleImpl() *exampleGrpc.Implementation {
 	if p.exampleImpl == nil {
-		p.exampleImpl = example.NewImplementation(p.ExampleService())
+		p.exampleImpl = exampleGrpc.NewImplementation(p.ExampleService())
 	}
 	return p.exampleImpl
 }

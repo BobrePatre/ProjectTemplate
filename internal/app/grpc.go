@@ -2,7 +2,7 @@ package app
 
 import (
 	"context"
-	descExample "github.com/BobrePatre/ProjectTemplate/pkg/api/grpc/golang/example"
+	descExample "github.com/BobrePatre/ProjectTemplate/pkg/api/grpc/golang/v1/example"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/grpc/reflection"
@@ -33,10 +33,10 @@ func (a *App) runGRPCServer() error {
 	slog.Info(
 		startingMsg,
 		grpcServerTag,
-		slog.String(addressMsg, a.diProvider.GRPCConfig().Address()),
+		slog.String(addressMsg, a.diProvider.GrpcConfig().Address()),
 	)
 
-	listener, err := net.Listen("tcp", a.diProvider.GRPCConfig().Address())
+	listener, err := net.Listen("tcp", a.diProvider.GrpcConfig().Address())
 	if err != nil {
 		return err
 	}

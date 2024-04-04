@@ -1,12 +1,15 @@
-package di_provider
+package diProvider
 
 import (
 	"context"
-	grpcMiddlewares "github.com/BobrePatre/ProjectTemplate/internal/api/grpc/interceptors"
-	httpMiddlewares "github.com/BobrePatre/ProjectTemplate/internal/api/http/middlewares"
+	"github.com/BobrePatre/ProjectTemplate/internal/config"
+	"github.com/BobrePatre/ProjectTemplate/internal/delivery/grpc/interceptors"
+	httpMiddlewares "github.com/BobrePatre/ProjectTemplate/internal/delivery/http/middlewares"
 	webAuthProvider "github.com/BobrePatre/ProjectTemplate/internal/providers/web_auth_provider"
 	keycloakAuthProvider "github.com/BobrePatre/ProjectTemplate/internal/providers/web_auth_provider/keycloak_redis"
 	"log"
+	"log/slog"
+	"os"
 	"time"
 )
 
@@ -20,7 +23,7 @@ func (p *DiProvider) HttpAuthMiddlewareConstructor() webAuthProvider.AuthHttpMid
 
 func (p *DiProvider) GrpcAuthUnaryInterceptorConstructor() webAuthProvider.AuthGrpcUnaryInterceptorConstructor {
 	if p.grpcUnaryAuthInterceptorConstructor == nil {
-		p.grpcUnaryAuthInterceptorConstructor = grpcMiddlewares.AuthInerceptor
+		p.grpcUnaryAuthInterceptorConstructor = interceptors.AuthInerceptor
 	}
 	return p.grpcUnaryAuthInterceptorConstructor
 }
@@ -37,9 +40,21 @@ func (p *DiProvider) WebAuthProvider() webAuthProvider.WebAuthProvider {
 
 		err := p.webAuthProvider.CheckSsoConnection(ctx)
 		if err != nil {
-			log.Fatalf("failed to fetch jwks from sso: %s", err.Error())
+			slog.Error("failed to fetch jwks from sso", "error", err.Error())
+			os.Exit(1)
 		}
 	}
 
 	return p.webAuthProvider
+}
+
+func (p *DiProvider) AuthConfig() config.WebAuthConfig {
+	if p.webAuthConfig == nil {
+		cfg, err := config.NewAuthConfig(p.Validate())
+		if err != nil {
+			log.Fatalf("failed to get auth config: %s", err.Error())
+		}
+		p.webAuthConfig = cfg
+	}
+	return *p.webAuthConfig
 }
