@@ -5,7 +5,7 @@ package v1.example;
 import "google/api/annotations.proto";
 import "protoc-gen-openapiv2/options/annotations.proto";
 
-option go_package = "pkg/api/grpc/golang/example";
+option go_package = "pkg/api/grpc/golang/v1/example";
 
 
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
