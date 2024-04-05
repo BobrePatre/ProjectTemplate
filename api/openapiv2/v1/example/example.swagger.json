@@ -75,7 +75,9 @@
       "type": "object",
       "properties": {
         "title": {
-          "type": "string"
+          "type": "string",
+          "description": "sucka blat",
+          "title": "Xui"
         },
         "description": {
           "type": "string"

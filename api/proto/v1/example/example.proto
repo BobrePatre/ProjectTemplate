@@ -69,9 +69,11 @@ message ExampleRequest {
     string body = 3;
 }
 
+
+
 message ExampleResponse {
     option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_schema) = {
-        json_schema : {
+        json_schema: {
             title: "CreateExampleResponse"
         }
     };

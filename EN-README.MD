@@ -1,130 +1,94 @@
-```
-├── delivery
-│   ├── example
-│   │   └── example.proto
-│   └── opendeliveryv2
-│       └── example
-│           └── example.swagger.json
-├── cmd
-│   └── grpc_server
-│       └── main.go
-├── internal
-│   ├── delivery
-│   │   ├── grpc
-│   │   │   ├── converters
-│   │   │   ├── example
-│   │   │   └── interceptors
-│   │   └── http
-│   │       ├── converters
-│   │       ├── datatransfers
-│   │       │   ├── request
-│   │       │   └── response
-│   │       ├── handlers
-│   │       │   └── example
-│   │       ├── middlewares
-│   │       └── routes
-│   │           └── example
-│   ├── app
-│   ├── config
-│   ├── constants
-│   ├── model
-│   ├── providers
-│   │   ├── di_provider
-│   │   └── web_auth_provider
-│   │       ├── keycloak_redis
-│   │       ├── model
-│   │       └── provider.go
-│   ├── repository
-│   │   ├── example
-│   │   └── repository.go
-│   ├── service
-│   │   ├── example
-│   │   └── service.go
-│   └── utils
-│       └── helpers
-├── pkg
-│   ├── delivery
-│   │   ├── dart
-│   │   │   └── example
-│   │   ├── golang
-│   │   │   └── example
-│   │   └── typescript
-│   │       └── example
-│   └── vendor
-│       ├── googledeliverys
-│       └── grpc-gateway
-├── docker-compose.yml
-├── Makefile
-├── README.MD
-├── go.mod
-├── go.sum
-├── grpc.http
-├── http-client.env.json
-├── internal
-├── opendeliverytools.json
-└── realms
-    └── example-realm.json
-```
+## 📚 ProjectTemplate: A Comprehensive Golang Microservice Template ✨
 
+**Welcome to ProjectTemplate!** 🎉 This repository houses a robust and well-structured Golang microservice template designed to jumpstart your backend development journey. 🚀
 
-This project's structure is tailored for development using the Go programming language, offering support for both gRPC and REST delivery frameworks. Herein is a detailed explanation of each component within the project's architecture:
+**Table of Contents**
 
-### Primary Directories
+* 🗺️ Project Structure
+* 🧰 Key Features
+* 🛠️ Technologies Used
+* 🤝 Contributing
+* 📝 License
+* 🔗 Links
 
-- **`delivery`**: Houses the delivery definitions.
-    - **`example`**: Contains `example.proto`, the protobuf files for defining gRPC services.
-    - **`opendeliveryv2/example`**: Includes `example.swagger.json`, detailing the REST delivery in Swagger format, which simplifies the generation of documentation and client libraries.
+---
 
-- **`cmd`**: Directory designated for executable files or entry points.
-    - **`grpc_server`**: Comprises `main.go`, serving as the entry point to launch the gRPC server.
+## 🗺️ Project Structure
 
-### Internal Structure (`internal`)
+The project is neatly organized into various folders, each with its specific purpose:
 
-- **`delivery`**: Encapsulates the delivery handling logic.
-    - **`grpc`**: A sub-directory for gRPC handlers
-        - **`converters`**: Functions to convert between data formats.
-        - **`example`**: Specific implementations for examples.
-        - **`interceptors`**: gRPC interceptors that allow pre-processing of calls.
-    - **`http`**: A sub-directory for HTTP handlers:
-        - **`converters`**: Functions to convert between data formats.
-        - **`datatransfers`**: Defines the data transfer objects (DTOs), including requests (`request`) and responses (`response`).
-        - **`handlers`**: Handlers for HTTP requests.
-        - **`middlewares`**: Middleware for processing HTTP requests.
-        - **`routes`**: Defines the routes for the HTTP delivery.
+* **api:**
+    * **openapiv2:** Houses OpenAPI v2 specifications for HTTP API documentation.
+    * **proto:** Contains Protocol Buffer definitions for gRPC services.
+* **cmd:**
+    * **server:** Entry point for the application.
+* **internal:**
+    * **app:** Initializes and runs core application components (logger, gRPC server, gRPC gateway, HTTP server, graceful shutdown).
+    * **config:** Handles service configuration logic.
+    * **constants:** Defines service-wide constants.
+    * **delivery:** Encapsulates communication (API) components.
+        * **http:** Implements HTTP (REST) communication logic.
+            * **converters:** Functions for data conversion between DTOs and domain models.
+            * **datatransfers:** Stores data transfer objects (DTOs).
+            * **handlers:** Implements HTTP handler logic.
+            * **middlewares:** Contains middleware for authentication, CORS, and logging.
+            * **routes:** Configures routing (maps requests to handlers, defines endpoints, sets middleware, and registers routes).
+        * **grpc:** Implements gRPC communication logic.
+            * **converters:** Functions for converting Protocol Buffer models to domain models and vice versa.
+            * **impl:** Contains gRPC server implementations.
+            * **interceptors:** Implements interceptors for authentication, logging, and more.
+    * **models:** Defines internal domain models for the service.
+    * **providers:** Offers various application providers.
+        * **di_provider:** Provides dependency injection initialization.
+        * **web_auth_provider:** Provides authentication abstractions.
+            * **keycloak_redis:** Implements web_auth_provider for Keycloak and Redis.
+    * **repository:** Contains repositories for data access.
+    * **service:** Implements business logic.
+    * **utils:** Provides utilities and helper functions.
+* **migrations:** Stores database migration scripts.
+* **pkg:** Houses generated code (gRPC server for Golang, client libraries for Dart).
+* **realms:** Contains realm exports (Keycloak authentication configuration).
+* **buf.gen.yaml:** Configuration for generating client libraries.
+* **buf.work.yaml:** Configuration for Protocol Buffer declaration locations.
+* **config.json:** Application configuration.
+* **http-client.env.json:** HTTP client configuration.
+* **requests.http:** Contains requests for API testing.
 
-- **`app`**: Core components (like gRPC server, HTTP server) and sets them up by integrating and utilizing dependencies from the DI provider.
+---
 
-- **`config`**: Stores the application's configurations.
+## 🧰 Key Features
 
-- **`constants`**: Defines constants used across the application.
+* **Clean Architecture:**  Adheres to clean architecture principles for maintainability and testability.
+* **gRPC & HTTP Support:**  Offers both gRPC and HTTP APIs for flexible communication.
+* **Dependency Injection:** Employs dependency injection for better code organization and testability.
+* **Authentication & Authorization:** Provides authentication and authorization mechanisms using Keycloak and Redis.
+* **Database Migrations:** Manages database schema changes with migrations.
+* **Logging & Middleware:** Includes logging and middleware functionalities for better control and observability.
+* **Code Generation:** Leverages code generation for gRPC clients and servers.
+* **Testing:** Facilitates testing with pre-configured tools and example requests.
 
-- **`model`**: Contains the data models.
+---
 
-- **`providers`**: Layer for supplying various services and components.
-    - **`di_provider`**: Provider for dependency injection.
-    - **`web_auth_provider`**: Providers for authentication and authorization.
-        - **`keycloak_redis`**: An auth provider implementation adapted for use with Keycloak and Redis.
-        - **`model`**: Data models utilized for authentication.
-        - **`provider.go`**: An interface defining the auth provider's methods.
+## 🛠️ Technologies Used
 
-- **`repository`**: Contains abstractions for data storage operations.
-    - **`example`**: An example repository.
-    - **`repository.go`**: Common interfaces for repositories.
+* **Golang:** The primary programming language.
+* **gRPC:** For high-performance RPC communication.
+* **Protocol Buffers:** For data serialization and service definition.
+* **OpenAPI:** For HTTP API documentation.
+* **Keycloak:** For authentication and authorization.
+* **Redis:** For caching and session management.
+* **PostgreSQL:** As the database solution.
 
-- **`service`**: Defines the services containing the business logic.
-    - **`example`**: An example service.
-    - **`service.go`**: Common interfaces for services.
+--- 
 
-- **`utils`**: Auxiliary utilities.
-    - **`helpers`**: Helper functions.
+## 🤝 Contributing
 
-### Additional Components and Configurations
+Contributions are welcome! Please refer to the contributing guidelines for more information.
 
-- **`pkg`**: External libraries and generated client libraries for the project's delivery
-    - **`delivery`**: Subdirectories for Dart, Go, TypeScript with client libraries and a gRPC server
-    - **`vendor`**: External dependencies and libraries, including `googledeliverys` and `grpc-gateway`.
+## 📝 License
 
-- **`docker-compose.yml`**, **`Makefile`**, **`go.mod`**, **`go.sum`**, **`grpc.http`**, **`http-client.env.json`**, **`opendeliverytools.json`**: Tools and configuration files for managing dependencies, building, deploying, and testing the project.
+This project is licensed under the [MIT License](LICENSE).
 
-- **`realms`**: Configuration for realms (a feature of SSO Keycloak)
-    - **`example-realm.json`**: An example of a realm configuration for KeyCloak.
+## 🔗 Links
+
+* **Repository:** https://github.com/BobrePatre/ProjectTemplate 
