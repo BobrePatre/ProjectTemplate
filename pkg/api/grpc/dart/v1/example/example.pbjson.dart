@@ -34,7 +34,7 @@ final $typed_data.Uint8List exampleRequestDescriptor = $convert.base64Decode(
 const ExampleResponse$json = {
   '1': 'ExampleResponse',
   '2': [
-    {'1': 'title', '3': 1, '4': 1, '5': 9, '8': {}, '10': 'title'},
+    {'1': 'title', '3': 1, '4': 1, '5': 9, '10': 'title'},
     {'1': 'description', '3': 2, '4': 1, '5': 9, '10': 'description'},
     {'1': 'body', '3': 3, '4': 1, '5': 9, '10': 'body'},
   ],
@@ -43,9 +43,9 @@ const ExampleResponse$json = {
 
 /// Descriptor for `ExampleResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List exampleResponseDescriptor = $convert.base64Decode(
-    'Cg9FeGFtcGxlUmVzcG9uc2USKgoFdGl0bGUYASABKAlCFJJBESoDWHVpMgpzdWNrYSBibGF0Ug'
-    'V0aXRsZRIgCgtkZXNjcmlwdGlvbhgCIAEoCVILZGVzY3JpcHRpb24SEgoEYm9keRgDIAEoCVIE'
-    'Ym9keTockkEZChcqFUNyZWF0ZUV4YW1wbGVSZXNwb25zZQ==');
+    'Cg9FeGFtcGxlUmVzcG9uc2USFAoFdGl0bGUYASABKAlSBXRpdGxlEiAKC2Rlc2NyaXB0aW9uGA'
+    'IgASgJUgtkZXNjcmlwdGlvbhISCgRib2R5GAMgASgJUgRib2R5OhySQRkKFyoVQ3JlYXRlRXhh'
+    'bXBsZVJlc3BvbnNl');
 
 const $core.Map<$core.String, $core.dynamic> ExampleServiceBase$json = {
   '1': 'ExampleService',
