@@ -5,6 +5,7 @@ import (
 	"github.com/BobrePatre/ProjectTemplate/internal/constants"
 	"github.com/BobrePatre/ProjectTemplate/internal/delivery/http/middlewares"
 	"github.com/BobrePatre/ProjectTemplate/internal/delivery/http/routes/example"
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"log/slog"
 	"net/http"
@@ -26,9 +27,12 @@ func (a *App) initHTTPServer(_ context.Context) error {
 	router.Use(gin.Recovery())
 	router.Use(middlewares.SlogLoggerMiddleware())
 
+	// TODO: create config for cors
+	router.Use(cors.Default())
+
 	authMiddlewareConstructor := a.diProvider.HttpAuthMiddlewareConstructor()
 
-	v1RouterGroup := router.Group("/api/v1", middlewares.CORSMiddleware())
+	v1RouterGroup := router.Group("/api/v1")
 	example.NewRouter(v1RouterGroup,
 		authMiddlewareConstructor(a.diProvider.WebAuthProvider()),
 		a.diProvider.ExampleHandler(),
