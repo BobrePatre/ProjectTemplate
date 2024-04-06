@@ -81,10 +81,6 @@ The project is neatly organized into folders, each with a specific purpose:
 
 Your contributions are welcome! Feel free to open issues or pull requests.
 
-## 📝 License
-
-This project is licensed under the [MIT License](LICENSE).
-
 ## 🔗 Links
 
 * **Repository:** https://github.com/BobrePatre/ProjectTemplate 
